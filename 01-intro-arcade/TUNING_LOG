@@ -1,0 +1,13 @@
+TUNING_LOG
+Line 61: Added new variable "self.bar" and set it to 5.
+Line 62: Changed local variable of "speed" that was originally in the update method and globalized it making it "self.speed" setting it to the same 360 it was before.
+Line 63: Added new variable "self.enemySpeedup" to set a baseline speed for the enemies that can be adjusted.
+
+Line 109 & 110: update to "* self.speed" to reflect the new variable name.
+
+Line 120 & 121: adding the "self.enemySpeedup" multiplier to the rectangle vector, speeding up the rectangle when it is supposed to.
+
+Line 139: adding "speed += 18" to the coin collection if loop. Why 18? Since the original speed is set to 360 and I wanted it to essentially double every 20 coins 360/20 = 18. This multiplies the self.speed variable that I added/changed from the local "speed"
+Line 140: adding "enemySpeedup += 0.05" to the coin collection loop. Similarly to self.speed I wanted it to double for every 20 coins, thus 0.5. This adds a multiplier to the vector calculation with the enemyRects
+
+Line 142 - 147: This was my original implementation that used "self.bar". Originally I was going to have speed raise for every 5 coins collected, but I decided to change it to every coin gradually. I decided to leave that implementation in commented even though I didn't use it.
