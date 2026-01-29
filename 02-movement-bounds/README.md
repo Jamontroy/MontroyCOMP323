@@ -24,20 +24,24 @@ Note: The feedback I recieved from A1 was very clear that you want explicit chan
     The idea for the barriers is that they should randomly make it harder for the player to reach the goal
     - Added Barrier Class
         - Line 24-25
+
             class Barriers:
                 rect: pygame.Rect
     - Added self.barrier1 and self.barrier2 with dimensions of with (40, 400) or (400, 40) in init. Those dimensions were chosen so they would be significant but still avoidable.
         - Lines 70-71
+
             self.barrier1 = Barriers(rect=pygame.Rect(0, 0, 40, 400))
             self.barrier2 = Barriers(rect=pygame.Rect(0, 0, 400, 40))
     - Added drawing the barriers gray in draw()
         - Lines 374-375
+
             pygame.draw.rect(self.screen, (128, 128, 128), self.barrier1.rect, border_radius=6)
             pygame.draw.rect(self.screen, (128, 128, 128), self.barrier2.rect, border_radius=6)
 - Adding rectNoOverlap
     An issue I kept running into was the teleporter and barriers spawning on top of each other, so I implemented this overlap detection using an array of the rects coordinates
     - defined rectNoOverlap
         - Lines 118 - 123
+
             def rectNoOverlap(self, rect: pygame.Rect, others: list[pygame.Rect], margin: int = 60) -> None:
                 while True:
                     p = self._random_point_in_playfield(margin)
@@ -61,6 +65,7 @@ Note: The feedback I recieved from A1 was very clear that you want explicit chan
     Similarly to rectNoOverlap, I was having issues with the goal overlapping, but the goal isnt a rect so I created its own method for not overlapping. It still uses the rect array to know where things are and makes sure not to place on top of those rects
     - defined goalNoOverlap
         - Lines 125-135
+
             def goalNoOverlap(self, goal: Goal, obstacles: list[pygame.Rect], margin: int = 60) -> None:
                 size = goal.radius * 2
                 goal_rect = pygame.Rect(0, 0, size, size)
@@ -74,12 +79,14 @@ Note: The feedback I recieved from A1 was very clear that you want explicit chan
                         return
     - added the method to _reset_level so it will randomly place, not on top of the other objects, every reset.
         - Line 103
+
             self.goalNoOverlap(self.goal, placed_rects, margin=60)
 
 - Adding rectObjCollision
     Of course adding new objects means I needed to add the collision for those objects. I elected for a clamp, because I think that makes the most sense for barriers. 
     - Defines recObjCollision - clamping the player to the edge of the object and killing its speed.
         - Lines 240-264
+
             def rectObjCollision(self, player: pygame.Rect, obstacle: pygame.Rect) -> None: #ADDED for the collision with the rectangles
                 if not player.colliderect(obstacle):
                     return
@@ -115,20 +122,24 @@ Note: The feedback I recieved from A1 was very clear that you want explicit chan
     For create an increasing sense of urgency and to make higher levels more difficult I added a difficulty ramp where the user has 1 second less time to reach the goal every level
     - Adding When reset key pressed the seconds reset to 30
         - Line 152
+
             self.TIMER_SECONDS = 30
     - Incrementing seconds in update   
         - Line 317
+
             self.TIMER_SECONDS -= 1 
 
 
 - Adding a Victory Screen
     With the time continuing to increment every level, the game can go it 30 rounds before it is impossible. Thus I added a victory screen for the player if they sucessfully reach level 29
     - Created a new end screen in draw
-        Lines 384-385
+        - Lines 384-385
+
             elif self.state == "finish":
             self._draw_center_message("Congradulations You Have Beaten The Game!", "R: Play Again   Tab: Bounds")
     - Added a conditional statement to update state
-        lines 318-319
+        - lines 318-319
+
             if self.level == 29: #Added
                 self.state = "finish"
 
@@ -146,6 +157,7 @@ Note: The feedback I recieved from A1 was very clear that you want explicit chan
     When testing the game initially there was a bug where the player would glide up and left for about two seconds after the player let go of the button.
     - Added section where if player_vel < 20 the player stops. This removed the bug.
         - Lines 294 - 295
+        
             if self.player_vel.length() < 20:
                 self.player_vel.update(0, 0)
 
