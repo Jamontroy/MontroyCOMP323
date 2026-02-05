@@ -12,15 +12,16 @@ From this folder:
 - Arrow keys / WASD: move (top-down)
 - `P`: toggle platformer mode (jump + gravity)
 - `Up` / `W` / `Space`: jump (platformer mode)
+- Press Jump/Up Twice to perform a double jump!
 - `Left Shift`: dash (cooldown)
-- `1` / `2` / `3` / `4` / `5` : feel preset (tight/floaty/heavy)
+- `1` / `2` / `3` / `4` / `5` : feel preset (tight/floaty/heavy/under water/super tight)
 - `C`: cycle control scheme (WASD / arrows / IJKL)
 - `F1`: toggle debug overlay
 - `Tab`: cycle boundary mode (clamp/wrap/bounce)
 - `R`: reset
 - `Space`: start (from title)
 - `Esc`: quit
-- Press Jump/Up Twice to perform a double jump!
+
 
 ## Tuning Log
 - Adding control mapping pipeline
@@ -41,4 +42,4 @@ From this folder:
   - Adding the preset of Super Tight. This preset increases acceleration, max_speed, and friction compared to the tight preset. I am a fan of Metroid Dread which has very quick tight movements and I tried to replicate that with his preset. It works best in the platformer mode. The raised speed and acceleration allow for faster movement and the raised friction allows for faster feeling changes in direction. 
 
 ## Scope
-The goal for this project was to add different movement feelings. Water levels are some of my favorite in games like super mario and the addition of a water movement pattern with slow movemet makes a player be mor careful with their movements as they may not have time to react to something coming their way. On the flip side, when testing the tight control preset I thought it could be tighter. Adding the super tight preset allows the player to make quick concise movements that give the player more direct control of the play when they need to make split second decisions. I added the double jump feature to give the player a more unique way to move around. This implementation can lead to more unique puzzles and challenges around using double jump. FInally I added a mapping layer to the controls so they were not hard coded into certain actions. Any player can assign any keys to the any of the actions in the action class.
+The goal for this project was to add different movement feelings. Water levels are some of my favorite in games like super mario and the addition of a water movement pattern with slow movemet makes a player be more careful with their movements as they may not have time to react to something coming their way. On the flip side, when testing the tight control preset I thought it could be tighter. Adding the super tight preset allows the player to make quick concise movements that give the player more direct control of the play when they need to make split second decisions. I added the double jump feature to give the player a more unique way to move around. This implementation can lead to more unique puzzles and challenges around using double jump. Finally I added a mapping layer to the controls so they were not hard coded into certain actions. Any player can assign any keys to the any of the actions in the action class.
