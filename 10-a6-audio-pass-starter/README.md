@@ -28,7 +28,7 @@ From this folder:
 
 ## Tuning Log
 
-# Audio.py
+### Audio.py
 - Added 6 more sounds to the array self.sounds
     - "collect_node" | Sound to be played when nodes are collected
     - "hazard_collide" | sound to be played when the player collides with the hazard
@@ -40,7 +40,7 @@ From this folder:
     All of these sounds have been sources from pixabay.com a royalty free sound website
 - I adjusted the volume values for the sound effects and the background music so it sounds good in game
 
-# Game.py
+### Game.py
 - Implementing the new sounds into the update events of the game
     - TitleScene
         - self.game.audio.play_loop("menu_music") | plays the menu music in the On_Enter Method
