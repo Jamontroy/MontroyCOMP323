@@ -22,7 +22,7 @@ From this folder:
 | Time (sec) | What happens | Difficulty lever | Current value | Assessment |
 |---|---|---|---|---|
 | 10 sec | First Enemies begin spawning slowly, player gets used to controls and can keep up with shooting them. | SPAWN_DELAY_MS | 800ms | Its a good spawn rate for amble challenge |
-| 10sec - 20sec| Enemies start to pile up, the hardest enemies to kill are the fastest ones, player may strategize to focus fast blocks before slow | ENEMY_SPEED_MAX | The enemies are at a proper speed for ample challenge |
+| 10sec - 20sec| Enemies start to pile up, the hardest enemies to kill are the fastest ones, player may strategize to focus fast blocks before slow | ENEMY_SPEED_MAX | 7 | The enemies are at a proper speed for ample challenge |
 | 20sec - 30sec | Player has let a few enemies slip past and has been hit by an enemy | ENEMY_DAMAGE | 20 | Gives the player 5 hits out of their 100 points before they are dead. |
 | 30sec - 45sec | A lot of enemies are spawning and the player is not able to kill them fast enough | FIRING_COOLDOWN | 200ms | The cooldown needs to be lowered to make it easier for the player to kill enemies |
 | 45sec - 55sec | Player continues to get hit by the enemies as they overwhelm them | PLAYER_HEALTH | 100 | The player health is still at a good rate, the difficulty just ramps up |
